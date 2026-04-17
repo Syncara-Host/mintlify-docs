@@ -5,7 +5,7 @@
   "colors": {
     "primary": "#064FB4",
     "light": "#064FB4",
-    "dark": "#02276D"
+    "dark": "#064FB4"
   },
   "favicon": "/favicon.svg",
   "navigation": {
@@ -58,12 +58,12 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:support@syncara.host"
+        "href": "https://billing.syncara.host/tickets/create"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Client Area",
+      "label": "Home",
       "href": "https://billing.syncara.host"
     }
   },
