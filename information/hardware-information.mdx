@@ -1,0 +1,64 @@
+---
+title: "Hardware Information"
+description: "This is an overview of the hardware that we use across our infrastructure."
+icon: "microchip"
+---
+
+## Overview
+
+We utilize enterprise-grade hardware across all of our servers to deliver consistent, reliable performance. The specific processor assigned to your service depends on current availability and inventory at each location. Hardware configurations may vary between regions.
+
+<Note>
+We do not guarantee a specific processor model for any plan, and server migrations solely for the purpose of obtaining a different processor are not supported. Hardware allocations may change over time as newer, more efficient processors become available.
+</Note>
+
+## Game Hosting (Minecraft, Hytale & App Hosting)
+
+### Basic Plan
+
+| Spec | Detail |
+|---|---|
+| **Memory** | DDR4 ECC, up to 2933 MHz |
+| **Storage** | RAID1 or RAID10 Enterprise NVMe SSD |
+| **Overview** | Cost-effective hosting built on proven, high-performance AMD EPYC hardware. Ideal for small to mid-sized servers and applications. |
+
+**Available Processors:**
+
+- AMD EPYC Milan 7763
+- AMD EPYC Milan 7B13
+- AMD EPYC Milan 7J13
+- AMD EPYC Milan 7C13
+
+### Premium Plan
+
+| Spec | Detail |
+|---|---|
+| **Memory** | DDR4, up to 3200 MHz |
+| **Storage** | RAID10 Enterprise NVMe SSD |
+| **Overview** | High-performance hosting powered by AMD Ryzen processors. Built for demanding workloads and larger communities. |
+
+**Available Processors:**
+
+- AMD Ryzen 5 5600
+- AMD Ryzen 5 5600X
+
+## Website Hosting
+
+| Spec | Detail |
+|---|---|
+| **Memory** | Varies by host |
+| **Storage** | RAID1 or RAID10 NVMe SSD |
+| **Overview** | Shared hosting plans optimized for websites, blogs, and small web applications. |
+
+**Available Processors:**
+
+- Intel Xeon Silver 4215R
+- AMD Ryzen 5 5600
+
+## CPU Clock Speeds
+
+All of our servers operate at their respective processors' turbo boost clock speeds. Please keep in mind:
+
+- The CPU clock speed displayed within your VM may be **inaccurate** and could reflect the processor's base clock rather than real-time turbo frequencies.
+- Most processors used across our infrastructure boost well beyond **3 GHz+**.
+- All servers are properly cooled to maintain sustained performance under heavy load.

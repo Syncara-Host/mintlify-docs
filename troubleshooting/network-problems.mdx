@@ -1,0 +1,33 @@
+---
+title: "Network Problems"
+description: "Troubleshooting network speeds."
+icon: "globe"
+---
+
+## Overview
+
+While we recommend opening a support ticket if you encounter network issues, gathering diagnostic data using the methods below will significantly speed up the resolution process. Supplying this information helps our team pinpoint bottlenecks, identify latency sources, and effectively adjust routing or fix throughput problems.
+
+## Diagnosing Packet Loss (From Your Local Machine)
+
+If you suspect packet loss is occurring between your personal computer and your server, please perform the following tests. Note that these instructions must be executed from your local home PC, not the server itself.
+
+### Windows
+
+We recommend using **WinMTR**, a free, open-source diagnostic utility that measures latency and visualizes exactly where packet drops occur along the route. You can download it directly from [SourceForge](https://sourceforge.net/projects/winmtr/).
+
+1. After downloading, extract the ZIP archive and run the `WinMTR.exe` application.
+2. Enter your server's IP address into the `Host:` field located at the top of the interface.
+3. Click the `Start` button and allow the tool to gather data for a few minutes.
+4. Once you have collected enough data, click `Copy Text to clipboard` and paste the results into your support ticket. This traceroute data is crucial for us to identify the exact hop causing the network disruption.
+
+### Linux or MacOS
+
+For Unix-based operating systems, you can utilize the command-line `mtr` utility.
+
+- **Installation:** Use your system's package manager to install the tool. On Linux distributions, the package is typically named `mtr` or `mtr-tiny`. On macOS, you can install the `mtr` package via Homebrew.
+- **Execution:** Open your terminal and run `mtr <serverip>`, substituting `<serverip>` with your actual server IP address. Let the command run for several minutes, then copy the terminal output to your clipboard and attach it to your support ticket.
+
+<Frame>
+  ![Winmtr](/images/winmtr.webp)
+</Frame>

@@ -1,0 +1,22 @@
+/* Syncara Host Custom Theme */
+:root {
+  --background-dark: #000216;
+  --background-light: #FFFFFF;
+}
+
+/* Dark mode background override */
+.dark {
+  --background: #000216 !important;
+}
+
+/* Hide Mintlify AI Chat Bar */
+#mintlify-chat,
+[class*="chat"],
+[class*="assistant"],
+[data-testid*="chat"],
+.fixed.bottom-0,
+div[class*="ChatBar"],
+div[class*="chatbar"],
+div[class*="AskAI"] {
+  display: none !important;
+}

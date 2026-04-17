@@ -1,0 +1,86 @@
+---
+title: "Offline Mode / Crack Server"
+description: "How to enable offline mode on your Minecraft server so non-premium players can join."
+icon: "unlock"
+---
+
+## Overview
+
+By default, Minecraft servers run in **online mode**, meaning only players with a legitimate Mojang/Microsoft account can connect. If you want to allow non-premium (cracked) players to join your server, you need to switch the server to **offline mode**.
+
+<Warning>
+Running a server in offline mode disables Mojang's authentication system. This means anyone can join with any username, making your server vulnerable to impersonation and unauthorized access. We strongly recommend installing an authentication plugin if you choose to enable offline mode.
+</Warning>
+
+## Enabling Offline Mode
+
+### Step 1: Access Your Server Files
+
+1. Log in to the **Syncara Control Panel** at [panel.syncara.host](https://panel.syncara.host).
+2. Select the server you want to configure.
+3. Navigate to the **File Manager** section.
+
+### Step 2: Edit server.properties
+
+1. Locate and open the `server.properties` file in the root directory of your server.
+2. Find the following line:
+
+```properties
+online-mode=true
+```
+
+3. Change it to:
+
+```properties
+online-mode=false
+```
+
+4. Save the file and **restart** your server for the changes to take effect.
+
+<Note>
+After restarting, your server will no longer verify player accounts through Mojang's authentication servers. Both premium and non-premium players will be able to connect.
+</Note>
+
+## Securing Your Offline Mode Server
+
+Since offline mode disables account verification, it is **critical** to install an authentication plugin to prevent unauthorized players from impersonating others. Here are the recommended options:
+
+### AuthMe (Bukkit/Spigot/Paper)
+
+**AuthMe Reloaded** is the most widely used authentication plugin for offline mode servers. It requires players to register and log in with a password before they can interact with the server.
+
+1. Download AuthMe from [SpigotMC](https://www.spigotmc.org/resources/authmereloaded.6269/).
+2. Place the `.jar` file into your server's `plugins/` folder.
+3. Restart the server.
+4. Players will now be prompted to `/register <password> <password>` on their first join, and `/login <password>` on subsequent joins.
+
+### LibreLogin (Velocity/BungeeCord/Paper)
+
+For proxy-based networks, **LibreLogin** offers modern authentication with seamless premium auto-login support.
+
+1. Download LibreLogin from [GitHub](https://github.com/kyngs/LibreLogin).
+2. Install on your proxy and backend servers as instructed in their documentation.
+3. Configure to your needs.
+
+## Using a Proxy? (BungeeCord / Velocity)
+
+If you run a proxy-based network (BungeeCord or Velocity), the offline mode setting works slightly differently:
+
+- Set `online-mode=false` in each **backend server's** `server.properties`.
+- On **BungeeCord**: Set `online_mode: false` in `config.yml` if you want to allow cracked players.
+- On **Velocity**: Set `online-mode=false` in `velocity.toml`.
+- Enable `bungeecord: true` in each backend server's `spigot.yml` (for BungeeCord), or install the appropriate forwarding plugin for Velocity.
+
+<Warning>
+When using a proxy, make sure to **firewall your backend servers** so that players can only connect through the proxy. Otherwise, players can bypass authentication by connecting directly to a backend server.
+</Warning>
+
+## Summary
+
+| Setting | File | Value |
+|---|---|---|
+| **Standalone Server** | `server.properties` | `online-mode=false` |
+| **BungeeCord Proxy** | `config.yml` | `online_mode: false` |
+| **Velocity Proxy** | `velocity.toml` | `online-mode=false` |
+
+After enabling offline mode, always install an authentication plugin to keep your server secure. If you need any assistance, feel free to open a support ticket at **support@syncara.host**.

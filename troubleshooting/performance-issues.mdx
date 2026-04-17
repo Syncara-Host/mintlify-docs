@@ -1,0 +1,91 @@
+---
+title: "Performance Issues"
+description: "Troubleshooting server performance and TPS problems."
+icon: "gauge-high"
+---
+
+## Overview
+
+Experiencing lag or low TPS on your Minecraft server can stem from a variety of causes — inefficient plugins, unoptimized configurations, or excessive entity/chunk loading. This guide walks you through the essential steps to diagnose and resolve performance issues using industry-standard tools and optimization resources.
+
+We recommend following each section in order before reaching out to support, as the data you gather will help us assist you more effectively.
+
+## Profiling Your Server with Spark
+
+The first step in diagnosing performance issues is to generate a server profile. **Spark** is a lightweight, powerful profiling tool designed specifically for Minecraft servers. It provides detailed insights into what's consuming your server's resources.
+
+### Installing Spark
+
+1. Download the latest Spark plugin from the [official website](https://spark.lucko.me/download).
+2. Place the `.jar` file into your server's `plugins/` folder.
+3. Restart your server to load the plugin.
+
+### Generating a Performance Profile
+
+Once Spark is installed, run the following commands in your server console:
+
+- **TPS & Tick Report:** Run `/spark tps` to get a quick overview of your server's current ticks-per-second and tick duration.
+- **CPU Profiler:** Run `/spark profiler start`, wait for at least **5 minutes** during peak activity, then run `/spark profiler stop`. Spark will generate a shareable link containing a full breakdown of what's consuming CPU time.
+- **Memory Analysis:** Run `/spark heapsummary` to inspect memory usage and identify potential memory leaks.
+
+<Note>
+When submitting a support ticket, always include the Spark profile link. This allows our team to quickly identify the root cause of lag without guesswork.
+</Note>
+
+## Optimizing Your Server Configuration
+
+After profiling, the next step is to optimize your server's configuration files. Two community-maintained guides are widely regarded as the gold standard for Minecraft server optimization:
+
+### YouHaveTrouble's Optimization Guide
+
+This comprehensive guide provides recommended settings for `server.properties`, `bukkit.yml`, `spigot.yml`, `paper-global.yml`, and `paper-world-defaults.yml`. It covers everything from view distance tuning to entity activation ranges.
+
+- **Guide:** [YouHaveTrouble's Minecraft Server Optimization Guide](https://github.com/YouHaveTrouble/minecraft-optimization)
+
+### PaperMC Documentation
+
+The official PaperMC documentation offers in-depth explanations of each configuration option and their impact on performance, along with anti-cheat compatibility considerations.
+
+- **Guide:** [PaperMC Performance Tuning](https://docs.papermc.io/paper/anti-xray)
+
+### Key Areas to Optimize
+
+Based on these guides, the most impactful settings to adjust include:
+
+- **View Distance & Simulation Distance** — Reducing these values significantly lowers chunk loading overhead.
+- **Entity Activation Range** — Controls how far entities need to be from a player before they start ticking.
+- **Mob Spawn Limits** — Lowering spawn caps reduces entity count and improves tick performance.
+- **Hopper & Redstone Optimization** — Paper provides built-in optimizations for these notoriously lag-heavy mechanics.
+- **Chunk Loading & Generation** — Throttling async chunk generation prevents CPU spikes during exploration.
+
+## Installing SyncBoost
+
+For larger servers that require additional optimization beyond configuration tuning, we offer **SyncBoost** — a custom optimization solution built specifically for Syncara Host infrastructure.
+
+### What SyncBoost Does
+
+- Applies pre-tuned performance configurations tailored to your server's hardware allocation.
+- Optimizes JVM startup flags and garbage collection parameters.
+- Includes automated entity and chunk management for high-player-count environments.
+
+### How to Install
+
+1. Navigate to the **Syncara Control Panel** and select your server.
+2. Go to the **Mods/Plugins** section and search for `SyncBoost`.
+3. Click **Install** and restart your server.
+
+Alternatively, contact our support team at **support@syncara.host** and request SyncBoost to be enabled on your service.
+
+<Note>
+SyncBoost is recommended for servers with **50+ concurrent players** or servers running heavy modpacks. For smaller servers, the configuration optimizations above should be sufficient.
+</Note>
+
+## Still Experiencing Issues?
+
+If you've followed all the steps above and are still experiencing performance problems, please open a support ticket and include the following:
+
+- Your **Spark profile link** (CPU and/or memory)
+- Your current **player count** and **plugin list**
+- A brief description of **when the lag occurs** (e.g., during peak hours, world generation, specific plugin actions)
+
+Our team will review your data and work with you to resolve the issue.
