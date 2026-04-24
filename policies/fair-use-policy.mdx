@@ -43,6 +43,22 @@ The following resource-related activities are also prohibited:
 - Using the service as a file storage/sharing platform unrelated to web hosting.
 - Running open proxies, TOR exit nodes, or anonymizing services without prior approval.
 
+### Database Usage on Rhino Panel
+
+Database usage on the Rhino Panel is strictly limited to a maximum of **10GB in total**. To avoid exceeding this limit and impacting overall database performance, you must not use the provided databases for plugins that generate massive amounts of data. This includes, but is not limited to:
+
+- **CoreProtect**
+- **Dynmap / BlueMap / Squaremap**
+- **Plan (Player Analytics)**
+- **LogBlock / Prism**
+- Other extensive block-logging, mapping, or analytics plugins.
+
+If you require data storage for these plugins, please configure them to use local storage (e.g., SQLite or flat files) within your server's storage allocation, or connect them to an external dedicated database.
+
+<Warning>
+If your database usage exceeds the 10GB limit, we reserve the right to **suspend your server** until the issue is resolved and the database size is reduced.
+</Warning>
+
 ## Enforcement Actions
 
 ### Right to Inspect and Investigate
